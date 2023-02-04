@@ -10,6 +10,7 @@ public class MainBigDecimal {
     public static void main(String[] args) {
         BigDecimal eqResult = calculateEquation(new BigDecimal(10)).setScale(2, RoundingMode.CEILING);
         System.out.println(eqResult);
+        System.out.println("prueba");
 
     }
 
