@@ -7,8 +7,9 @@ public class MainInterfaces {
     private String name;
 
     public static void main(String[] args) {
-        Perro perro = new Perro();
+        Perro can = new Perro();
         Gato gato = new Gato();
+        sdksafjds
 
 //        perro.habla();
 //        perro.chilla();
@@ -25,7 +26,7 @@ public class MainInterfaces {
 
         Hablador hablador;
 
-        hablador = perro;
+        hablador = can;
         hablador.habla();
 
 
