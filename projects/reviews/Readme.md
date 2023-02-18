@@ -35,11 +35,9 @@ A project showing some methods to use junit5 to test some model classes.
 <!-- ABOUT THE PROJECT -->
 ## Class diagram
 
-[![Class diagram][product-screenshot]](doc/class_diagram.png) 
+![class Diagram](doc/class_diagram.png)
 
-[class Diagram](doc/class_diagram.png)
-
-![alt text](../doc/class_diagram.png "some title")
+[link to the image](../doc/class_diagram.png "some title")
 
 ### Run tests from command line
 ```shell
