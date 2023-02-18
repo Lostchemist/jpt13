@@ -8,12 +8,12 @@ public class Account {
 
     private BigDecimal balance;
 
-    private long accountNumber;
+    private String accountNumber;
 
     public Account() {
     }
 
-    public Account(String name, String address, BigDecimal balance, long accountNumber) {
+    public Account(String name, String address, BigDecimal balance, String accountNumber) {
         this.name = name;
         this.address = address;
         this.balance = balance;
@@ -44,11 +44,11 @@ public class Account {
         this.balance = balance;
     }
 
-    public long getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(long accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 

@@ -18,8 +18,8 @@ class PaymentProcessorTest {
 
     @BeforeEach
     void setUp() {
-        buyer = new Account("Toni Mas", "Calle 1", new BigDecimal(100), 1);
-        seller = new Account("Mario Mas", "Calle 2", new BigDecimal(200), 2);
+        buyer = new Account("Toni Mas", "Calle 1", new BigDecimal(100), "1");
+        seller = new Account("Mario Mas", "Calle 2", new BigDecimal(200), "2");
 
         paymentProcessor = new PaymentProcessor();
     }
