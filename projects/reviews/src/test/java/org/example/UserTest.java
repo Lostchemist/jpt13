@@ -27,7 +27,7 @@ class UserTest {
 
     @Test
     void newUserNullUsername() {
-        User user = new User();
+        User user = new User(null, "123");
 
         assertNotNull(user.getUsername());
     }
