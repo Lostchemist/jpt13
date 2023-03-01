@@ -1,5 +1,7 @@
 package org.ironhack.bootcamp.jpt13.assessment2.exercises.enums;
 
+import org.ironhack.bootcamp.jpt13.assessment2.common.SubscriptionType;
+
 public class Player {
     private String name;
     private String email;

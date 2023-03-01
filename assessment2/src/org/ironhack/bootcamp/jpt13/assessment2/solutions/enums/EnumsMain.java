@@ -1,5 +1,7 @@
 package org.ironhack.bootcamp.jpt13.assessment2.solutions.enums;
 
+import org.ironhack.bootcamp.jpt13.assessment2.common.SubscriptionType;
+
 public class EnumsMain {
 
     public static void main(String[] args) {
