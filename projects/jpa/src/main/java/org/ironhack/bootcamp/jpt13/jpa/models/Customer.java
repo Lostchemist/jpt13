@@ -5,24 +5,24 @@ import jakarta.persistence.*;
 @Entity
 public class Customer {
     @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long customerId;
-  private String firstName;
-  private String lastName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long customerId;
+    private String firstName;
+    private String lastName;
 
-  @Embedded
-  Address currentAddress;
+    @Embedded
+    Address currentAddress;
 
-  @AttributeOverrides({
-    @AttributeOverride(name="streetAddress",column=@Column(name="perm_street")),
-    @AttributeOverride(name="city",column=@Column(name="perm_city")),
-    @AttributeOverride(name="postalCode",column=@Column(name="perm_postal"))
-  })
-  @Embedded
-  private Address permanentAddress;
+    @AttributeOverrides({
+            @AttributeOverride(name = "streetAddress", column = @Column(name = "perm_street")),
+            @AttributeOverride(name = "city", column = @Column(name = "perm_city")),
+            @AttributeOverride(name = "postalCode", column = @Column(name = "perm_postal"))
+    })
+    @Embedded
+    private Address permanentAddress;
 
-  @Embedded
-  private EmergencyContact emergencyContact;
+    @Embedded
+    private EmergencyContact emergencyContact;
 
     public Long getCustomerId() {
         return customerId;
