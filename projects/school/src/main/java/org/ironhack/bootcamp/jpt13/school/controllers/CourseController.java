@@ -1,6 +1,8 @@
 package org.ironhack.bootcamp.jpt13.school.controllers;
 
 import org.ironhack.bootcamp.jpt13.school.models.Course;
+import org.ironhack.bootcamp.jpt13.school.repositories.CourseRepository;
+import org.ironhack.bootcamp.jpt13.school.repositories.ProductRepository;
 import org.ironhack.bootcamp.jpt13.school.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

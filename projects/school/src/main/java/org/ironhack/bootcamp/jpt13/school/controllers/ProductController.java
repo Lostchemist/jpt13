@@ -4,6 +4,7 @@ import org.ironhack.bootcamp.jpt13.school.models.Category;
 import org.ironhack.bootcamp.jpt13.school.models.Department;
 import org.ironhack.bootcamp.jpt13.school.models.Product;
 import org.ironhack.bootcamp.jpt13.school.repositories.ProductRepository;
+import org.ironhack.bootcamp.jpt13.school.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,9 @@ import java.util.Optional;
 public class ProductController implements ProductControllerInterface {
     @Autowired
     ProductRepository productRepository;
+
+    @Autowired
+    ProductService productService;
 
     @GetMapping("/products/{id}")
     @ResponseStatus(HttpStatus.OK)
@@ -72,4 +76,17 @@ public class ProductController implements ProductControllerInterface {
         System.out.println("This is a test");
         return productRepository.findByDateCreatedBetween(startDate, endDate);
     }
+
+    @PostMapping("/products")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addProduct(@RequestBody Product product) {
+        productRepository.save(product);
+    }
+
+    @PutMapping("/products/{id}")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void updateProduct(@PathVariable Long id, @RequestBody Product product) {
+        productService.updateProduct(id, product);
+    }
+
 }
