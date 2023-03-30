@@ -29,9 +29,9 @@ public class StudentController implements StudentControllerInterface {
     }
 
     @Override
-    @PutMapping("/students/{id}")
+    @PutMapping("/students/{studentId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable Long id, @RequestBody Student student) {
+    public void update(@PathVariable("studentId") Long id, @RequestBody Student student) {
         studentService.update(id, student);
     }
 

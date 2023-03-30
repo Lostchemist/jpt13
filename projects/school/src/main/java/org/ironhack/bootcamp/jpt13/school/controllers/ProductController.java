@@ -79,8 +79,9 @@ public class ProductController implements ProductControllerInterface {
 
     @PostMapping("/products")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addProduct(@RequestBody Product product) {
-        productRepository.save(product);
+    public Product addProduct(@RequestBody Product product) {
+//        return productRepository.save(product);
+        return productService.create(product);
     }
 
     @PutMapping("/products/{id}")

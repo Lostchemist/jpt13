@@ -3,7 +3,9 @@ package org.ironhack.bootcamp.jpt13.school.services;
 import org.ironhack.bootcamp.jpt13.school.models.Student;
 import org.ironhack.bootcamp.jpt13.school.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.swing.text.html.Option;
 import java.util.List;
@@ -22,7 +24,7 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public Student create(Student student) {
         if (student.getId() != null) {
-            return null;
+            new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "an object with id" + student.getId() + " already exists");
         }
         return studentRepository.save(student);
     }
