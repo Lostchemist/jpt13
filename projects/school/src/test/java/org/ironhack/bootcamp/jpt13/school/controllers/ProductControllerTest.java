@@ -13,9 +13,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -27,18 +34,37 @@ class ProductControllerTest {
     @Autowired
     private ProductRepository productRepository;
 
-
-    private ObjectMapper mapper = new ObjectMapper();
     private MockMvc mockMvc;
 
+    private ObjectMapper mapper = new ObjectMapper();
+
     @BeforeEach
-    public void setup() {
-       mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+    void setUp() {
+        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+        // String name, BigDecimal price, Category category, Department department, Date dateCreated
+        productRepository.save(new Product("Ring", new BigDecimal(100.3), Category.HANDMADE, Department.ART, new Date()));
+
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
         productRepository.deleteAll();
+    }
+
+    @Test
+    void getProductById() throws Exception {
+        MvcResult mvcResult =  mockMvc.perform(
+                get("/products/{id}", 1)
+        ).andExpect(status().isOk()).andReturn();
+
+        Product p = mapper.readValue(mvcResult.getResponse().getContentAsString(), Product.class);
+        assertEquals(p.getCategory(), Category.HANDMADE);
+        assertEquals(p.getName(), "Ring");
+
+    }
+
+    @Test
+    void getProductsByCategoryAndDepartment() {
     }
 
     @Test

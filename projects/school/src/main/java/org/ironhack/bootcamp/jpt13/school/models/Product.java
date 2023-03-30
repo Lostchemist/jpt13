@@ -24,6 +24,16 @@ public class Product {
 
     Date dateCreated;
 
+    public Product( String name, BigDecimal price, Category category, Department department, Date dateCreated) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.department = department;
+        this.dateCreated = dateCreated;
+    }
+
+    public Product() {}
+
     public Long getId() {
         return id;
     }
